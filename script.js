@@ -1,17 +1,35 @@
-const dialog = document.querySelector('.signup-dialog');
-const closeButton = document.querySelector('.dialog-close');
-const signupForm = document.querySelector('.signup-form');
-const formMessage = document.querySelector('.form-message');
+const form = document.getElementById("signupForm");
 
-if (dialog) {
-  window.setTimeout(() => dialog.showModal(), 650);
-  closeButton?.addEventListener('click', () => dialog.close());
-}
+form.addEventListener("submit", async (e) => {
+    e.preventDefault();
 
-// signupForm?.addEventListener('submit', (event) => {
-//   event.preventDefault();
-//   const email = new FormData(signupForm).get('email');
-//   formMessage.textContent = `Thanks! ${email} has been added to the On Par community list.`;
-//   signupForm.reset();
-// });
+    const data = {
+        firstName: document.getElementById("firstName").value,
+        lastName: document.getElementById("lastName").value,
+        email: document.getElementById("email").value,
+        phone: document.getElementById("phone").value
+    };
+https://gxonhpaby0.execute-api.us-east-2.amazonaws.com
+    try {
 
+        const response = await fetch(
+            "https://gxonhpaby0.execute-api.us-east-2.amazonaws.com/signup",
+            {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(data)
+            }
+        );
+
+        if (response.ok) {
+            alert("Thanks for signing up!");
+            form.reset();
+        }
+
+    } catch (error) {
+        console.error(error);
+        alert("Something went wrong.");
+    }
+});
