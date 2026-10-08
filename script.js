@@ -9,7 +9,9 @@ form.addEventListener("submit", async (e) => {
         email: document.getElementById("email").value,
         phone: document.getElementById("phone").value
     };
-https://gxonhpaby0.execute-api.us-east-2.amazonaws.com
+
+    console.log("Submitting:", data);
+
     try {
 
         const response = await fetch(
@@ -23,13 +25,17 @@ https://gxonhpaby0.execute-api.us-east-2.amazonaws.com
             }
         );
 
+        console.log("Response Status:", response.status);
+
         if (response.ok) {
             alert("Thanks for signing up!");
             form.reset();
+        } else {
+            alert("Request failed.");
         }
 
     } catch (error) {
-        console.error(error);
+        console.error("Fetch Error:", error);
         alert("Something went wrong.");
     }
 });

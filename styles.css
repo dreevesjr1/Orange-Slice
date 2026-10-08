@@ -23,7 +23,11 @@ body {
   display: flex;
   flex-direction: column;
   color: var(--ink);
-  background: var(--gray);
+  background: linear-gradient(
+              180deg,
+              #f8fafc 0%,
+              #eef3f8 100%
+);
   font-family: Arial, Helvetica, sans-serif;
   line-height: 1.65;
 }
@@ -380,4 +384,124 @@ h2 {
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
+}
+
+/* Event CSS*/
+
+.event-details,
+.event-location {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 0 20px;
+    text-align: center;
+}
+
+.event-tagline {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #f58c1f;
+    margin-bottom: 20px;
+}
+
+.event-location iframe {
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+/* Background for events page*/
+.page-intro {
+    background: linear-gradient(
+        180deg,
+        #f8fafc 0%,
+        #ffffff 100%
+    );
+
+    padding: 100px 20px;
+    text-align: center;
+}
+
+/* ==============================
+   EVENTS PAGE
+============================== */
+
+.event-details {
+
+    max-width: 700px;
+    margin: 60px auto;
+
+    background: #ffffff;
+
+    padding: 40px;
+
+    border-radius: 20px;
+
+    text-align: center;
+
+    box-shadow:
+        0 12px 35px rgba(0,0,0,.1);
+}
+
+.event-list {
+    list-style: none;
+    padding: 0;
+    margin: 30px 0;
+}
+
+.event-list li {
+    padding: 15px 0;
+    border-bottom: 1px solid #e5e5e5;
+    font-size: 1.05rem;
+}
+
+.event-btn {
+    display: inline-block;
+
+    margin-top: 25px;
+
+    padding: 14px 30px;
+
+    background: var(--sky);
+    color: var(--navy);
+
+    border-radius: 10px;
+
+    font-weight: bold;
+}
+
+.event-btn:hover {
+    background: var(--sky-light);
+}
+
+.event-location {
+
+    margin-top: 80px;
+
+    background: var(--navy);
+
+    padding: 80px 20px;
+}
+
+.event-location h2 {
+
+    color: white;
+
+    text-align: center;
+
+    margin-bottom: 40px;
+}
+
+.event-location iframe {
+
+    display: block;
+
+    width: 100%;
+
+    max-width: 1000px;
+
+    margin: 0 auto;
+
+    border-radius: 20px;
+
+    box-shadow:
+        0 20px 50px rgba(0,0,0,.25);
 }
